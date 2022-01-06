@@ -1,6 +1,7 @@
 function crearEdadFamiliares(numero){
     for(i = 0; i < numero; i++){
         labelFamiliar = document.createElement('label');
+        labelFamiliar.className = 'labelsFamiliar';
         textoEdadFamiliar = document.createTextNode(`Edad familiar nº${i+1}`);
 
         input = document.createElement('input');
@@ -20,7 +21,7 @@ function crearEdadFamiliares(numero){
 }
 
 
-$botonSiguiente = document.querySelector('#siguiente');
+const $botonSiguiente = document.querySelector('#siguiente');
 
 $botonSiguiente.onclick = function(){
     const $cantidadFamiliares = document.querySelector('#cantidad-familiares')
@@ -68,7 +69,7 @@ function calcularEdadPromedio(edades){
 }
 
 
-$botonCalcular = document.querySelector('#calcular');
+const $botonCalcular = document.querySelector('#calcular');
 
 $botonCalcular.onclick = function(){
     const $edadesFamiliares = document.querySelectorAll('.input-familiar')
@@ -77,6 +78,28 @@ $botonCalcular.onclick = function(){
     document.querySelector('#menor-edad').textContent = calcularEdadMenor(edadFamiliares);
     document.querySelector('#mayor-edad').textContent = calcularEdadMayor(edadFamiliares);
     document.querySelector('#promedio-edad').textContent = calcularEdadPromedio(edadFamiliares).toFixed(2);
+    return false
+}
+
+function eliminaredadFamiliares(){
+    const $labelsFamiliar = document.querySelectorAll('.labelsFamiliar')
+    for(i = 0; i < $labelsFamiliar.length; i++){
+        $labelsFamiliar[i].remove();
+    }
+}
+
+function eliminarDatosCalculados(){
+    document.querySelector('#menor-edad').textContent = ' ';
+    document.querySelector('#mayor-edad').textContent = ' ';
+    document.querySelector('#promedio-edad').textContent = ' ';
+}
+
+const $botonEmpezarDeCero = document.querySelector('#resetear');
+
+$botonEmpezarDeCero.onclick = function(){
+    eliminaredadFamiliares();
+    eliminarDatosCalculados();
+    
     return false
 }
 
