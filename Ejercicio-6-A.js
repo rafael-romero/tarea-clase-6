@@ -6,6 +6,7 @@ function crearEdadFamiliares(numero){
         input = document.createElement('input');
         input.type = Number;
         input.id = `input-familiar-${[i]}`;
+        input.class = 'input-familiar';
 
         elementoMain = document.querySelector('main');
 
@@ -30,3 +31,53 @@ $botonSiguiente.onclick = function(){
 
     return false
 }
+
+function mostrarEdades(listaNodos){
+    const edades = [];
+    for(i = 0; i < listaNodos.length; i++){
+        edades.push(Number(listaNodos[i].innerText));
+    }
+    return edades
+}
+
+function calcularEdadMayor(edades){
+    let numeroMayor = edades[0];
+    for(i = 1; i < edades.length; i++){
+        if (edades[i] > numeroMayor){
+            numeroMayor = edades[i];
+        }
+    }
+    return numeroMayor
+}
+
+function calcularEdadMenor(edades){
+    let numeroMenor = edades[0];
+    for(i = 1; i < edades.length; i++){
+        if (edades[i] < numeroMenor){
+            numeroMenor = edades[i];
+        }
+    }
+    return numeroMenor
+}
+
+function calcularEdadPromedio(edades){
+    let totalEdades = 0;
+    for (i = 0; i < edades.length; i++){
+        totalEdades+=edades[i];
+    }
+    return totalEdades/edades.length
+}
+
+
+$botonCalcular = document.querySelector('#calcular');
+
+$botonCalcular.onclick = function(){
+    const $edadesFamiliares = document.querySelectorAll('.input-familiar')
+    const edadFamiliares = mostrarEdades($edadesFamiliares);
+    calcularEdadMenor(edadFamiliares);
+    calcularEdadMayor(edadFamiliares);
+    calcularEdadPromedio(edadFamiliares)
+
+    return false
+}
+
