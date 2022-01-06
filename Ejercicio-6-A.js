@@ -74,9 +74,9 @@ $botonCalcular = document.querySelector('#calcular');
 $botonCalcular.onclick = function(){
     const $edadesFamiliares = document.querySelectorAll('.input-familiar')
     const edadFamiliares = mostrarEdades($edadesFamiliares);
-    calcularEdadMenor(edadFamiliares);
-    calcularEdadMayor(edadFamiliares);
-    calcularEdadPromedio(edadFamiliares)
+    document.querySelector('#menor-edad') = calcularEdadMenor(edadFamiliares).toString;
+    document.querySelector('#mayor-edad') = calcularEdadMayor(edadFamiliares).toString;
+    document.querySelector('#promedio-edad') = calcularEdadPromedio(edadFamiliares).toString;
 
     return false
 }
