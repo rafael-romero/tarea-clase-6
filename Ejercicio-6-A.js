@@ -16,7 +16,6 @@ function crearEdadFamiliares(numero){
         labelFamiliar.appendChild(input);
         labelFamiliar.appendChild(br);
         elementoMain.appendChild(labelFamiliar);
-        
     }    
 }
 
@@ -74,10 +73,10 @@ $botonCalcular = document.querySelector('#calcular');
 $botonCalcular.onclick = function(){
     const $edadesFamiliares = document.querySelectorAll('.input-familiar')
     const edadFamiliares = mostrarEdades($edadesFamiliares);
-    document.querySelector('#menor-edad') = calcularEdadMenor(edadFamiliares).toString;
-    document.querySelector('#mayor-edad') = calcularEdadMayor(edadFamiliares).toString;
-    document.querySelector('#promedio-edad') = calcularEdadPromedio(edadFamiliares).toString;
-
+    
+    document.querySelector('#menor-edad').textContent = calcularEdadMenor(edadFamiliares);
+    document.querySelector('#mayor-edad').textContent = calcularEdadMayor(edadFamiliares);
+    document.querySelector('#promedio-edad').textContent = calcularEdadPromedio(edadFamiliares);
     return false
 }
 
