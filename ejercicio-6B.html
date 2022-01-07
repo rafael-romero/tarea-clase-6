@@ -13,9 +13,7 @@
     el mayor salario anual, menor salario anual, salario anual promedio y salario mensual promedio.
     Punto bonus: si hay inputs vacíos, ignorarlos en el cálculo (no contarlos como 0)."
     />
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="ejercicio-6B.js"></script>
-  </head>
+</head>
   <body>
     <header>
       <h1>Escriba el salario anual de cada integrante de su familia</h1><br>
@@ -23,11 +21,11 @@
     </header>
 
     <main>
-        <form>
+        <form id="formulario-ingreso-salarios">
             <button type="button" id="agregar-casillero-salario">Agregar casillero</button>
-            <input type="number" id="sueldo-primer-integrante" placeholder="Ingrese su sueldo Aqui"/>
+            <input type="number" id="salario-integrante-uno" placeholder="Ingrese su salario Aqui" class="salario"/>
             <button type="button" id="eliminar-casillero-salario">Eliminar casillero</button><br>
-            <button type="button" id="calcular">Calcular</button>
+            
         </form>
         <div>
             <p id="datos" hidden>
@@ -38,7 +36,9 @@
             </p>
         </div>
     </main>
-
-    <footer></footer>
+    <footer>
+        <button type="button" id="calcular">Calcular</button>
+    </footer>
+    <script src="ejercicio-6B.js"></script>
   </body>
 </html>
