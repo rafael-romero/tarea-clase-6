@@ -13,31 +13,41 @@
     el mayor salario anual, menor salario anual, salario anual promedio y salario mensual promedio.
     Punto bonus: si hay inputs vacíos, ignorarlos en el cálculo (no contarlos como 0)."
     />
-</head>
+    <link rel="stylesheet" type="text/css" href="ejercicio-6B.css" />
+  </head>
   <body>
     <header>
-      <h1>Escriba el salario anual de cada integrante de su familia</h1><br>
-      <h3>Agregue cuantos casilleros necesite!</h3><br>
+      <h1>Escriba el salario anual de cada integrante de su familia</h1>
+      <h3>Agregue cuantos casilleros necesite!</h3>
     </header>
-
     <main>
-        <form id="formulario-ingreso-salarios">
-            <button type="button" id="agregar-casillero-salario">Agregar casillero</button>
-            <input type="number" id="salario-integrante-uno" placeholder="Ingrese su salario Aqui" class="salario"/>
-            <button type="button" id="eliminar-casillero-salario">Eliminar casillero</button><br>
-            
-        </form>
-        <div>
-            <p id="datos" hidden>
-                El Mayor salario anual es: <b id="mayor-salario"></b><br>
-                El Menor salario anual es: <b id="menor-salario"></b><br>
-                El salario Anual promedio es: <b id="salario-anual-promedio"></b><br>
-                El salario Mensual promedio es: <b id="salario-mensual-promedio"></b><br>   
-            </p>
-        </div>
+      <form id="formulario-ingreso-salarios">
+        <button type="button" id="agregar-casillero-salario">
+          Agregar casillero
+        </button>
+        <input
+          type="number"
+          id="salario-integrante-uno"
+          placeholder="Ingrese su salario Aqui"
+          class="salario"
+        />
+        <button type="button" id="eliminar-casillero-salario">
+          Eliminar casillero</button
+        ><br />
+      </form>
+      <div>
+        <p id="datos" hidden>
+          El Mayor salario anual es: <b id="mayor-salario"></b><br />
+          El Menor salario anual es: <b id="menor-salario"></b><br />
+          El salario Anual promedio es: <b id="salario-anual-promedio"></b
+          ><br />
+          El salario Mensual promedio es: <b id="salario-mensual-promedio"></b
+          ><br />
+        </p>
+      </div>
     </main>
     <footer>
-        <button type="button" id="calcular">Calcular</button>
+      <button type="button" id="calcular">Calcular</button>
     </footer>
     <script src="ejercicio-6B.js"></script>
   </body>
