@@ -5,20 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>6B Ejercicio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      type="description"
+      content="TAREA:Crear una interfaz que permita agregar ó quitar
+    (botones agregar y quitar) inputs+labels para completar el salario anual de cada integrante
+    de la familia que trabaje. Al hacer click en calcular, mostrar en un elemento pre-existente 
+    el mayor salario anual, menor salario anual, salario anual promedio y salario mensual promedio.
+    Punto bonus: si hay inputs vacíos, ignorarlos en el cálculo (no contarlos como 0)."
+    />
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="ejercicio-6B.js"></script>
   </head>
   <body>
     <header>
-
+      <h1>Escriba el salario anual de cada integrante de su familia</h1><br>
+      <h3>Agregue cuantos casilleros necesite!</h3><br>
     </header>
-    
-    <main>
 
+    <main>
+        <form>
+            <button type="button" id="agregar-casillero-salario">Agregar casillero</button>
+            <input type="number" id="sueldo-primer-integrante" placeholder="Ingrese su sueldo Aqui"/>
+            <button type="button" id="eliminar-casillero-salario">Eliminar casillero</button><br>
+            <button type="button" id="calcular">Calcular</button>
+        </form>
+        <div>
+            <p id="datos" hidden>
+                El Mayor salario anual es: <b id="mayor-salario"></b><br>
+                El Menor salario anual es: <b id="menor-salario"></b><br>
+                El salario Anual promedio es: <b id="salario-anual-promedio"></b><br>
+                El salario Mensual promedio es: <b id="salario-mensual-promedio"></b><br>   
+            </p>
+        </div>
     </main>
 
-    <footer>
-
-    </footer>
+    <footer></footer>
   </body>
 </html>
