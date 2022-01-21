@@ -25,7 +25,6 @@ const $botonSiguiente = document.querySelector("#siguiente");
 $botonSiguiente.onclick = function () {
   const $cantidadFamiliares = document.querySelector("#cantidad-familiares");
   const cantidadFamiliares = Number($cantidadFamiliares.value);
-
   crearEdadFamiliares(cantidadFamiliares);
 
   return false;
