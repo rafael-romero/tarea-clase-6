@@ -4,18 +4,19 @@ const $botonAgregarCasilleroSalario = document.querySelector(
   "#agregar-casillero-salario"
 );
 $botonAgregarCasilleroSalario.onclick = function () {
-  cantidadCasilleros++;
   const $inputCasilleroSalario = document.createElement("input");
   $inputCasilleroSalario.type = "number";
-  $inputCasilleroSalario.id = `salario-integrante-${cantidadCasilleros}`;
+  $inputCasilleroSalario.id = `salario-integrante-${cantidadCasilleros + 1}`;
   $inputCasilleroSalario.placeholder = "Ingrese su salario Aqui";
   $inputCasilleroSalario.className = "salario";
   const $br = document.createElement("br");
+  $br.id = `br${cantidadCasilleros + 1}`;
   const $formularioIngreso = document.querySelector(
     "#formulario-ingreso-salarios"
   );
   $formularioIngreso.appendChild($inputCasilleroSalario);
   $formularioIngreso.appendChild($br);
+  cantidadCasilleros++;
   return false;
 };
 
@@ -23,17 +24,29 @@ const $botonEliminarCasilleroSalario = document.querySelector(
   "#eliminar-casillero-salario"
 );
 $botonEliminarCasilleroSalario.onclick = function () {
+  eliminarCasilleroSalario();
   if (cantidadCasilleros > 1) {
-    let $casilleroABorrar = document.querySelector(
+    cantidadCasilleros--;
+  }
+};
+
+function eliminarCasilleroSalario() {
+  const $formularioIngreso = document.querySelector(
+    "#formulario-ingreso-salarios"
+  );
+  if (cantidadCasilleros > 1) {
+    const $casilleroABorrar = document.querySelector(
       `#salario-integrante-${cantidadCasilleros}`
     );
+    const $separador = document.querySelector(`#br${cantidadCasilleros}`);
+    $formularioIngreso.removeChild($separador);
+    $formularioIngreso.removeChild($casilleroABorrar);
     $casilleroABorrar.remove();
-    cantidadCasilleros--;
   } else {
     alert("Estas intentando SACAR un casillero que no AGREGASTE");
   }
   return false;
-};
+}
 
 function mostrarSalarios(salario) {
   const salarios = [];
