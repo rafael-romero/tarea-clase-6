@@ -92,6 +92,17 @@ function calcularPromedioMensual(salarios) {
   return calcularPromedioAnual(salarios) / MESES_EN_UN_ANIO;
 }
 
+function validarNumeroIngresadoComoSalario(salario){
+  if (salario === 0){
+    return "Debe ingresar su salario o borrar el campo si esta de mas!"
+  }
+  if (!/^\d+$/.test(salario)){
+    return "Debe ingresar solo numeros enteros!"
+  }  
+  return "";
+}
+
+
 const $datos = document.querySelector("#datos");
 $datos.style.display = "none";
 
