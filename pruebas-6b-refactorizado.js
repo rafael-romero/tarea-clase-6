@@ -4,7 +4,7 @@ function probarValidarNumeroIngresadoComoSalario(){
         "probarValidarNumeroIngresadoComoSalario no valido que el numero ingresado sea mayor a cero"
     );
     console.assert(
-        validarNumeroIngresadoComoSalario(6.98) === "Debe ingresar su salario o borrar el campo si esta de mas!",
+        validarNumeroIngresadoComoSalario(6.98) === "Debe ingresar solo numeros enteros!",
         "probarValidarNumeroIngresadoComoSalario no valido que el numero ingresado sea entero"
     );
     console.assert(
