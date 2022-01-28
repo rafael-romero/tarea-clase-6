@@ -98,24 +98,49 @@ function calcularPromedioMensual(salarios) {
   return calcularPromedioAnual(salarios) / MESES_EN_UN_ANIO;
 }
 
-function validarNumeroIngresadoComoSalario(salario){
-  if (salario === 0){
-    return "Debe ingresar su salario o borrar el campo si esta de mas!"
+function validarNumeroIngresadoComoSalario(salario) {
+  if (salario === 0) {
+    return "Debe ingresar su salario o borrar el campo si esta de mas!";
   }
-  if (!/^\d+$/.test(salario)){
-    return "Debe ingresar solo numeros enteros!"
-  }  
+  if (!/^\d+$/.test(salario)) {
+    return "Debe ingresar solo numeros enteros!";
+  }
   return "";
 }
 
+function marcarErroresSalarios(objetoErroresDeSalarios) {
+  const llavesErrores = Object.keys(objetoErroresDeSalarios);
+  let cantidadDeErrores = 0;
+  llavesErrores.forEach(function (llaveError) {
+    const errorTextual = objetoErroresDeSalarios[llaveError];
+    if (errorTextual) {
+      const $inputSalario = document.querySelector(`#${llaveError}`);
+      $inputSalario.classList.add("error");
+      const $advertenciaEnNegrita = document.querySelector(
+        `#error-en-negrita-${llaveError}`
+      );
+      $advertenciaEnNegrita.className = "";
+      $advertenciaEnNegrita.textContent = "ADVERTENCIA: " + errorTextual;
+      cantidadDeErrores++;
+    } else {
+      const $inputCasilleroSalario = document.querySelector(`#${llaveError}`);
+      if ($inputCasilleroSalario.classList.contains("error")) {
+        $inputCasilleroSalario.classList.remove("error");
+        //if (cantidadDeErrores > 0){
+        //  cantidadDeErrores--;
+        //}
+      }
+      const $advertenciaEnNegrita = document.querySelector(
+        `#error-en-negrita-${llaveError}`
+      );
+      $advertenciaEnNegrita.className = "oculto";
+      $advertenciaEnNegrita.textContent = "";
+    }
+  });
+  return cantidadDeErrores;
+}
 
-const $datos = document.querySelector("#datos");
-$datos.style.display = "none";
-
-const $botonCalcular = document.querySelector("#calcular");
-$botonCalcular.onclick = function () {
-  const $salarios = document.querySelectorAll(".salario");
-  const salarios = mostrarSalarios($salarios);
+function calcularYMostrarDatos(salarios) {
   $datos.style.display = "block";
   document.querySelector("#mayor-salario").textContent =
     calcularMayorSalario(salarios);
@@ -125,5 +150,23 @@ $botonCalcular.onclick = function () {
     calcularPromedioAnual(salarios).toFixed(2);
   document.querySelector("#salario-mensual-promedio").textContent =
     calcularPromedioMensual(salarios).toFixed(2);
+}
+
+const $datos = document.querySelector("#datos");
+$datos.style.display = "none";
+const $botonCalcular = document.querySelector("#calcular");
+$botonCalcular.onclick = function () {
+  $datos.style.display = "none";
+  const $salarios = document.querySelectorAll(".salario");
+  const salarios = obtenerSalariosDeInputs($salarios);
+  const erroresDeSalarios = {};
+  salarios.forEach(function (salario, index) {
+    const errorDeSalario = validarNumeroIngresadoComoSalario(salario);
+    erroresDeSalarios[`salario-integrante-${index + 1}`] = errorDeSalario;
+  });
+  const sonValidosLosSalarios = marcarErroresSalarios(erroresDeSalarios) === 0;
+  if (sonValidosLosSalarios) {
+    calcularYMostrarDatos(salarios);
+  }
   return false;
 };
