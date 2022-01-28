@@ -57,13 +57,10 @@ function eliminarCasilleroSalario() {
   return false;
 }
 
-function mostrarSalarios(salario) {
+function obtenerSalariosDeInputs(salariosDeInputs) {
   const salarios = [];
-  for (let i = 0; i < salario.length; i++) {
-    let unSalario = Number(salario[i].value);
-    if (unSalario > 0) {
-      salarios.push(unSalario);
-    }
+  for (let i = 0; i < salariosDeInputs.length; i++) {
+    salarios.push(Number(salariosDeInputs[i].value));
   }
   return salarios;
 }
