@@ -54,6 +54,7 @@ function eliminarCasilleroSalario() {
   } else {
     alert("Estas intentando SACAR un casillero que no AGREGASTE");
   }
+  $datos.style.display = "none";
   return false;
 }
 
