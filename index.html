@@ -13,17 +13,18 @@
     el mayor salario anual, menor salario anual, salario anual promedio y salario mensual promedio.
     Punto bonus: si hay inputs vacíos, ignorarlos en el cálculo (no contarlos como 0)."
     />
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="ejercicio-6B.css" />
   </head>
   <body>
     <header>
-      <h1>Escriba el salario anual de cada integrante de su familia</h1>
+      <h1 class="display-6">Escriba el salario anual de cada integrante de su familia</h1>
       <h3>Agregue cuantos casilleros necesite!</h3>
     </header>
     <main>
       <form id="formulario-ingreso-salarios">
         <b class="oculto" id="error-en-negrita-salario-integrante-1"></b><br>
-        <button type="button" id="agregar-casillero-salario">
+        <button type="button" id="agregar-casillero-salario" class="btn btn-danger">
           Agregar 1 casillero mas</button>
         <input
           type="number"
@@ -32,12 +33,12 @@
           class="salario"
           value="0"
         />
-        <button type="button" id="eliminar-casillero-salario">
+        <button type="button" id="eliminar-casillero-salario" class="btn btn-danger">
           Eliminar ultimo casillero</button
         ><br />
       </form>
       <div>
-        <p id="datos" hidden>
+        <p id="datos" class="alert alert-success">
           El Mayor salario anual es: <b id="mayor-salario"></b><br />
           El Menor salario anual es: <b id="menor-salario"></b><br />
           El salario Anual promedio es: <b id="salario-anual-promedio"></b
@@ -48,7 +49,7 @@
       </div>
     </main>
     <footer>
-      <button type="button" id="calcular">Calcular</button>
+      <button type="button" id="calcular" class="btn btn-danger">Calcular</button>
     </footer>
     <script src="ejercicio-6B.js"></script>
     <script src="pruebas-6b-refactorizado.js"></script>
